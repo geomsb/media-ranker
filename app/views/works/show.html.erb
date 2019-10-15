@@ -1,8 +1,9 @@
 <h2><%= @work.title %></h2>
 <h3><%= @work.creator %></h3>
 <h3><%= @work.publication_year %></h3>
+<h3><%= @work.description %></h3>
 
-<p><%= link_to "Back to media ranks", root_path %></p>
-
+<%# <%= link_to "Back to media ranks" %> %>
 <%= link_to 'Edit', edit_work_path(@work.id) %> 
+<%# <%= link_to "Upvote" %> %>
 <%= link_to 'Delete', edit_work_path(@work.id) %> 
