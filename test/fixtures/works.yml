@@ -1,0 +1,30 @@
+hello:
+  category: album
+  title: Hello
+  creator: Georgina
+  publication_year: 1989
+  description: et expedita non aut quo
+world:
+  category: album
+  title: World
+  creator: Clau
+  publication_year: 1989
+  description: et expedita non aut quo
+computer:
+  category: album
+  title: Computer
+  creator: Clau
+  publication_year: 1989 
+  description: et expedita non aut quo
+album_work:
+  category: album
+  title: Album work
+  creator: Clau
+  publication_year: 1989
+  description: et expedita non aut quo
+movies_work:
+  category: movies	
+  title: Movie work
+  creator: Clau
+  publication_year: 1989 
+  description: et expedita non aut quo
