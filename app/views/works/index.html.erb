@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'Home', root_path %>
+<h1>List of Works</h1>
+<h2>Albums</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Votes</th>
+      <th>Title</th>
+      <th>Created By</th>
+      <th>Published</th>
+      <th>Upvote</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @works.each do |work| %>
+      <tr>
+        <td><%= work.votes %></td>
+        <td><%= work.title %></td>
+        <td><%= work.creator %></td>
+        <td><%= work.publication_year %></td>
+        <td><%= work.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
