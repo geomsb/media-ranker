@@ -46,7 +46,11 @@ describe Work do
     end
 
   it "retruns a list of all the works related to the album category" do
-    
-    
+    work4 = Work.new(category: "album",	title: "Hello", creator:"Clau",	publication_year:1989, description: "et expedita non aut quo")
+    work5 = Work.new(category: "movies",	title: "Hello", creator:"Clau",	publication_year:1989, description: "et expedita non aut quo")
+    work4.save
+    work5.save
+
+    expect{Work.albums_work}.must_equal 1
   end
 end
