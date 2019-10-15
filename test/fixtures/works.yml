@@ -14,7 +14,7 @@ computer:
   category: album
   title: Computer
   creator: Clau
-  publication_year: 1989 
+  publication_year: 1989
   description: et expedita non aut quo
 album_work:
   category: album
@@ -23,8 +23,14 @@ album_work:
   publication_year: 1989
   description: et expedita non aut quo
 movies_work:
-  category: movies	
+  category: movie
   title: Movie work
   creator: Clau
-  publication_year: 1989 
+  publication_year: 1989
+  description: et expedita non aut quo
+books_work:
+  category: book
+  title: Books work
+  creator: Clau
+  publication_year: 1989
   description: et expedita non aut quo

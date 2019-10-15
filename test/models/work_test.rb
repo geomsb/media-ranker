@@ -46,4 +46,18 @@ describe Work do
       expect(Work.albums_work.count).must_equal 4
     end
   end
+
+  describe "movies_work" do
+    it "retruns a list of all the works related to the movies category" do
+      expect(Work.movies_work.count).must_equal 1
+    end
+  end
+
+  describe "books_work" do
+    it "retruns a list of all the works related to the books category" do
+      expect(Work.books_work.count).must_equal 1
+    end
+  end
+
+
 end
