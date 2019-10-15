@@ -1,5 +1,7 @@
 class Work < ApplicationRecord
   validates :category, :title, :creator, :publication_year, :description, presence: true
+  validates :title, uniqueness: true
+  validates :publication_year, numericality: { only_integer: true, greater_than: 1900}
 
   def self.albums_work
     return self.where(category: "album")
