@@ -10,6 +10,25 @@
   </head>
 
   <body>
+  <header>
+      <h1>Media Ranker | Ranking the Best of Everything</h1>
+    </header>
+    <div>
+      <ul>
+        <li>
+          <%# <%= link_to "View top media", root_path %> %>
+        </li>
+        <li>
+          <%= link_to "View all media", works_path %>
+        </li>
+        <li>
+          <%= link_to "Add new work", new_work_path %>
+        </li>
+        <li>
+          <%= link_to "View all works", works_path %>
+        </li>
+    </div>
     <%= yield %>
   </body>
 </html>
+

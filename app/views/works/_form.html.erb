@@ -1,19 +1,22 @@
-<%= form_with(model: work, local: true) do |form| %>
-  <% if work.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(work.errors.count, "error") %> prohibited this work from being saved:</h2>
-
+  <% if @work.errors.any? %>
+    <section class="alert alert-danger">
+      <h1>Errors</h1>
       <ul>
-      <% work.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @work.errors.each do |column, message| %>
+          <li>
+            <strong><%= column.capitalize %></strong> <%= message %>
+          </li>
+        <% end %>
       </ul>
-    </div>
+      </section>
   <% end %>
 
+<p>Add a new work</p>
+
+<%= form_with model: @work, class: "work-input" do |form| %>
   <div class="field">
     <%= form.label :category %>
-    <%= form.text_field :category %>
+    <%= form.select :category,  ["album", "book", "movie"] %>
   </div>
 
   <div class="field">
@@ -37,6 +40,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit "#{action_name} Work" %>
+    <%= form.submit "Create Work" %>
   </div>
 <% end %>
