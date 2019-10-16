@@ -31,13 +31,7 @@ class UsersController < ApplicationController
   end
 
   def logout
-    username = params[:user][:username]
-    user = User.find_by(username: username)
-    if user
-      session[:user_id] = nil
-    else
-      flash[:failure] = "Error logging out"
-    end
+    session[:user_id] = nil
     redirect_to root_path
   end
 end
