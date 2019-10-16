@@ -3,7 +3,7 @@
 <h3><%= @work.publication_year %></h3>
 <h3><%= @work.description %></h3>
 
-<%# <%= link_to "Back to media ranks" %> %>
+<%= link_to "Back to media ranks", root_path %>
 <%= link_to 'Edit', edit_work_path(@work.id) %> 
 <%# <%= link_to "Upvote" %> %>
 <%= link_to 'Delete', edit_work_path(@work.id) %> 

@@ -12,7 +12,7 @@
 
   <tbody>
     <% Work.albums_work.each do |work| %>
-      <tr>
+      <tr>  
         <td><%= link_to "#{work.title}", work_path(work) %></td>
         <td><%= work.creator %></td>
         <td><%= work.publication_year %></td>

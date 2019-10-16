@@ -14,4 +14,9 @@ class Work < ApplicationRecord
   def self.movies_work
     return self.where(category: "movie")
   end
+
+  def top_ten(works)
+  
+  end
+
 end
