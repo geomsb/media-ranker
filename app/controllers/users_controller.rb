@@ -6,16 +6,20 @@ class UsersController < ApplicationController
   def login
     username = params[:user][:username]
     user = User.find_by(username: username)
-    if user
-      session[:user_id] = user.id
-      flash[:success] = "Successfully logged in as returning user #{username}"
+    if username.chomp == "" || user == nil
+      flash[:failure] = {general: "A problem occurred: Could not log in", username: "username: can't be blank"}
+      redirect_to login_path
     else
-      user = User.create(username: username)
-      session[:user_id] = user.id
-      flash[:success] = "Successfully logged in as new user #{username}"
+      if user
+        session[:user_id] = user.id
+        flash[:success] = "Successfully logged in as returning user #{username}"
+      else
+        user = User.create(username: username)
+        session[:user_id] = user.id
+        flash[:success] = "Successfully logged in as new user #{username}"
+      end
+      redirect_to root_path
     end
-  
-    redirect_to root_path
   end
 
   def current
@@ -25,7 +29,6 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
   end
-
 
   def logout
     username = params[:user][:username]
