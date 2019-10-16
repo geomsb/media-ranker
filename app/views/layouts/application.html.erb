@@ -27,9 +27,19 @@
         <li>
           <%# <%= link_to "View all users",  %>
         </li>
-        <li>
-          <%= link_to "Login", login_path %>
-        </li>
+
+        <% if session[:user_id].nil? %>
+          <li>
+            <%= link_to "Login", login_path %>
+          </li>
+        <%else%>
+          <li>
+            <%= link_to "Logout", logout_path, method: :post %>
+          </li>
+          <li>
+            Logged in as <%= User.find_by(id: session[:user_id]).username %>
+          </li>
+        <%end%>
     </div>
     <%= yield %>
   </body>
