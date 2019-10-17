@@ -1,10 +1,15 @@
 <% if flash[:failure] %>
-    <div class="failure"><%= flash[:failure] %></div>
+    <div class="failure"><%= flash[:failure]["general"] %></div>
+    <ul>
+      <li><%= flash[:failure]["user"] %></li>
+    </ul>
   <% end %>
 
 <% if flash[:success] %>
     <div class="success"><%= flash[:success] %></div>
   <% end %>
+
+
 
 <h1>List of Works</h1>
 <h2>Albums</h2>
