@@ -18,12 +18,12 @@ class WorksController < ApplicationController
   end
   
   def create
-    @work = Work.new(work_params) #instantiate a new task
-    if @work.save # save returns true if the database insert succeeds
+    @work = Work.new(work_params) 
+    if @work.save 
       redirect_to work_path(@work.id)
       return
-    else # save failed :(
-      render :new # show the new work form view again
+    else 
+      render :new
       return
     end
   end
