@@ -34,4 +34,23 @@ class UsersController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path
   end
+
+  def index
+    @users = User.all
+  end
+
+  def show
+    user_id = params[:id]
+    @user = User.find_by(id: user_id)
+    
+    if @user.nil?
+      redirect_to users_path
+      return
+    end
+  end
+
+  private
+	def user_params
+    return params.require(:user).permit(:username)
+  end
 end
