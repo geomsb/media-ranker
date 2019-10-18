@@ -41,6 +41,15 @@ describe Work do
     end
   end
 
+  describe 'relationship' do
+    it 'can be voted' do
+      user = users(:claudia)
+      work = works(:hello)
+      vote = Vote.create(date: Time.parse("Thu Nov 29 14:33:20 2019"), user_id: user.id, work_id: work.id)
+      expect(vote.work.id).must_equal work.id
+    end
+  end
+
   describe "albums_work" do
     it "retruns a list of all the works related to the album's category" do
       expect(Work.albums_work.count).must_equal 4
