@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :works
   resources :votes , only: [:new]
   post '/votes/:work_id', to: 'votes#create'
-
+  resources :users
+  
   get "/login", to: "users#login_form", as: "login"
   post "/login", to: "users#login"
   post "/logout", to: "users#logout", as: "logout"
