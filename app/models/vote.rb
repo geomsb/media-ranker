@@ -8,4 +8,20 @@ class Vote < ApplicationRecord
     winner_id = winner[0]
     return Work.find_by(id: winner_id)
   end
+
+  def top_ten(category)
+    sorted_works = Vote.all.group(:work_id).count.sort_by do |work_id, votes| votes end
+    works = []
+    sorted_works.each do |work|
+      if Work.find_by(id: work[0]).category == category
+        works << Work.find_by(id: work[0])
+      end
+    end
+
+    if works.length < 10
+      return works
+    else
+      return works[0...9]
+    end
+  end
 end
