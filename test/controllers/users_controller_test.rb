@@ -6,7 +6,7 @@ describe UsersController do
       User.create!(username: "georgina")
     end  
 
-    it "returns 200 OK for a logged-in user" do
+    it "returns 302:found for a logged-in user" do
       # Arrange
       perform_login
 
@@ -14,7 +14,7 @@ describe UsersController do
       get current_user_path
 
       # Assert
-      must_respond_with :success
+      must_respond_with :found
     end
 
 
