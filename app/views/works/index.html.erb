@@ -1,12 +1,13 @@
 <section class="works">
   <% if flash[:failure] %>
-    <div class="failure"><%= flash[:failure]["general"] %></div>
-    <ul>
-      <li><%= flash[:failure]["user"] %></li>
-    </ul>
+    <div class="failure alert alert-warning"><%= flash[:failure]["general"] %>
+      <ul>
+        <li><%= flash[:failure]["user"] %></li>
+      </ul>
+    </div>
   <% end %>
   <% if flash[:success] %>
-    <div class="success"><%= flash[:success] %></div>
+    <div class="success alert alert-success"><%= flash[:success] %></div>
   <% end %>
   <h2 class="list-works">List of Works</h2>
   <h4 class="type-work">Albums</h4>

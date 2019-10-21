@@ -1,7 +1,8 @@
-<% if flash[:success] %>
-  <div class="success"><%= flash[:success] %></div>
-<% end %>
+
 <tbody>
+  <% if flash[:success] %>
+    <div class="success alert alert-success"><%= flash[:success] %></div>
+  <% end %>
   <% spotlight = Vote.spotlight %>
   <% if spotlight %>
     <div class="winner">
