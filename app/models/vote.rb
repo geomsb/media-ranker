@@ -5,8 +5,12 @@ class Vote < ApplicationRecord
 
   def self.spotlight
     winner = Vote.all.group(:work_id).count.max_by do |work_id, votes| votes end
-    winner_id = winner[0]
-    return Work.find_by(id: winner_id)
+    if winner 
+      winner_id = winner[0]
+      return Work.find_by(id: winner_id)
+    else
+      return nil
+    end
   end
 
   def self.top_ten(category)
