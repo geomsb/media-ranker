@@ -20,7 +20,7 @@
     <div class="books">
       <h2 class="top">Top Books</h2>
       <ul>
-        <% Vote.top_ten("books").each do |work| %>
+        <% Vote.top_ten("book").each do |work| %>
           <li><h4><%= link_to "#{work.title}", work_path(work) %></h4> <span class="by"> by <%= work.creator %></span> <br/><span class="votes"><%= work.votes.count %>votes </span></li>
           <br/>
         <% end %>
