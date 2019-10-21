@@ -50,13 +50,15 @@ body{background-color: white;}
 }
 
 .buttons {
-  display: flex;
-  flex-direction: row;
-  margin-top: 6%;
+  display: inline;
   margin-left: 3%;
 }
 
 .label {
   display: inline-block;
   margin-bottom: 0.5rem;
+}
+
+.table {
+  margin-top: 6%;
 }
