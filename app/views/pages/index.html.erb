@@ -1,29 +1,36 @@
 <% if flash[:success] %>
-    <div class="success"><%= flash[:success] %></div>
-  <% end %>
-
+  <div class="success"><%= flash[:success] %></div>
+<% end %>
 <tbody>
-<h1>Media Spotlight: <%= Vote.spotlight.title %></h1>
-<h2>Top Movies</h2>
-
-<ul>
-  <% Vote.top_ten("movie").each do |work| %>
-    <li><%= link_to "#{work.title}", work_path(work) %> <span> By </span><%= work.creator %><span> </span><%= work.votes.count %> <span> votes </span></li>
-  <% end %>
-</ul>
-
-<h2>Top Books</h2>
-
-<ul>
-  <% Vote.top_ten("books").each do |work| %>
-    <li><%= link_to "#{work.title}", work_path(work) %> <span> By </span><%= work.creator %><span> </span><%= work.votes.count %> <span> votes </span></li>
-  <% end %>
-</ul>
-
-<h2>Top Albums</h2>
-
-<ul>
-  <% Vote.top_ten("album").each do |work| %>
-    <li><%= link_to "#{work.title}", work_path(work) %> <span> By </span><%= work.creator %><span> </span><%= work.votes.count %> <span> votes </span></li>
-  <% end %>
-</ul>
+  <div class="winner">
+    <h1><span class="spotlight">Media Spotlight: </span><%= link_to "#{Vote.spotlight.title}", class: "spotlight-link"%><span class="creator"> by <%= Vote.spotlight.creator%></h1>
+    </span>
+    <p class="votes"><%= Vote.spotlight.votes.count %> votes</p>
+  </div>
+  <div class="top-ten-container">
+    <div class="movies">
+      <h2 class="top">Top Movies</h2>
+      <ul>
+        <% Vote.top_ten("movie").each do |work| %>
+          <li><h4><%= link_to "#{work.title}", work_path(work) %></h4> <span> by </span><%= work.creator %><span> </span><%= work.votes.count %> <span> votes </span></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="books">
+      <h2 class="top">Top Books</h2>
+      <ul>
+        <% Vote.top_ten("books").each do |work| %>
+          <li><%= link_to "#{work.title}", work_path(work) %> <span> by </span><%= work.creator %><span> </span><%= work.votes.count %> <span> votes </span></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="albums">
+      <h2 class="top">Top Albums</h2>
+      <ul>
+        <% Vote.top_ten("album").each do |work| %>
+          <li><h4><%= link_to "#{work.title}", work_path(work) %></h4> <span> by </span><%= work.creator %><span> </span><%= work.votes.count %> <span> votes </span></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</tbody>
