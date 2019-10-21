@@ -1,4 +1,5 @@
 require "test_helper"
+
 describe User do
   describe 'validations' do
     it 'is valid when all fields are present' do
@@ -28,6 +29,14 @@ describe User do
       vote3 = Vote.create(date: Time.parse("Thu Nov 29 14:33:22 2019"), user_id: user3.id, work_id: work3.id)
       
       expect(Vote.spotlight).must_equal works(:hello)
+    end
+
+    it 'returns nil with no votes' do
+      user1 = users(:georgina)
+      work1 = works(:hello)
+      user2 = users(:claudia)
+      work2 = works(:hello)
+      expect(Vote.spotlight) nil
     end
   end 
   
