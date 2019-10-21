@@ -34,6 +34,7 @@ body{background-color: white;}
 
 .form-work {
   margin-left: 3%;
+  color: #212529;
 }
 
 .work-info {
@@ -53,4 +54,9 @@ body{background-color: white;}
   flex-direction: row;
   margin-top: 6%;
   margin-left: 3%;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
 }

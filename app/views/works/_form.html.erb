@@ -1,4 +1,4 @@
-  <% if @work.errors.any? %>
+    <% if @work.errors.any? %>
   <section class="alert alert-danger">
     <h1>Errors</h1>
     <ul>
@@ -13,28 +13,28 @@
 <p class="add-work">Add a new work</p>
 <div class="form-work">
   <%= form_with model: @work, class: "work-input" do |form| %>
-    <div class="field">
+    <div class="form-group">
       <%= form.label :category %>
       <%= form.select :category,  ["album", "book", "movie"] %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= form.label :title %>
       <%= form.text_field :title %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= form.label :creator %>
       <%= form.text_field :creator %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= form.label :publication_year %>
       <%= form.text_field :publication_year %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= form.label :description %>
       <%= form.text_area :description %>
     </div>
-    <div class="actions">
-      <%= form.submit "Create Work" %>
+    <div class="form-group">
+      <%= form.submit "Create Work", class: 'btn btn-primary' %>
     </div>
   <% end %>
 </div>
