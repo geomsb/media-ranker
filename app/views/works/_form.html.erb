@@ -1,45 +1,40 @@
   <% if @work.errors.any? %>
-    <section class="alert alert-danger">
-      <h1>Errors</h1>
-      <ul>
-        <% @work.errors.each do |column, message| %>
-          <li>
-            <strong><%= column.capitalize %></strong> <%= message %>
-          </li>
-        <% end %>
-      </ul>
-      </section>
-  <% end %>
-
-<p>Add a new work</p>
-
-<%= form_with model: @work, class: "work-input" do |form| %>
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.select :category,  ["album", "book", "movie"] %>
-  </div>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :creator %>
-    <%= form.text_field :creator %>
-  </div>
-
-  <div class="field">
-    <%= form.label :publication_year %>
-    <%= form.text_field :publication_year %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Create Work" %>
-  </div>
+  <section class="alert alert-danger">
+    <h1>Errors</h1>
+    <ul>
+      <% @work.errors.each do |column, message| %>
+        <li>
+          <strong><%= column.capitalize %></strong> <%= message %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
 <% end %>
+<p class="add-work">Add a new work</p>
+<div class="form-work">
+  <%= form_with model: @work, class: "work-input" do |form| %>
+    <div class="field">
+      <%= form.label :category %>
+      <%= form.select :category,  ["album", "book", "movie"] %>
+    </div>
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+    <div class="field">
+      <%= form.label :creator %>
+      <%= form.text_field :creator %>
+    </div>
+    <div class="field">
+      <%= form.label :publication_year %>
+      <%= form.text_field :publication_year %>
+    </div>
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+    <div class="actions">
+      <%= form.submit "Create Work" %>
+    </div>
+  <% end %>
+</div>

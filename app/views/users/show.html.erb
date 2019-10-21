@@ -1,9 +1,10 @@
+<div class="user-info">
+<h2 class="username">User Summary: <%= @user.username %></h2>
+<h3 class="joined"> Joined site <%= @user.created_at.strftime("%b, %d, %Y") %></h3>
+</div>
 
-<h2>User Summary: <%= @user.username %></h2>
-<h3><%= @user.created_at.strftime("%b, %d, %Y") %></h3>
-
-<section class="user-votes__container">
-  <h3 class="user-votes__header">Votes</h3>
+<section class="user-votes">
+  <h3 class="votes-title">Votes</h3>
   <table class="table">
     <thead>
       <tr>
@@ -17,7 +18,7 @@
     <tbody>
       <% @user.votes.each do |vote| %>
         <tr>  
-          <td><%= Work.find_by(id: vote.work_id).title %></td>
+          <td><%= link_to "#{(Work.find_by(id: vote.work_id).title)}", work_path(Work.find_by(id: vote.work_id).id)%></td>
           <td><%= Work.find_by(id: vote.work_id).creator %></td>
           <td><%= Work.find_by(id: vote.work_id).publication_year %></td>
           <td><%= Work.find_by(id: vote.work_id).category %></td>
@@ -29,6 +30,6 @@
   </table>
 </section>
 
-<%= link_to "Back to media ranks", root_path %> 
+<%= link_to "Back to media ranks", root_path  %> 
 <%= link_to "See all users", users_path %> 
   
