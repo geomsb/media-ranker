@@ -2,11 +2,14 @@
   <div class="success"><%= flash[:success] %></div>
 <% end %>
 <tbody>
-  <div class="winner">
-    <h1><span class="spotlight">Media Spotlight: </span><%= link_to "#{Vote.spotlight.title}", class: "spotlight-link"%><span class="creator"> by <%= Vote.spotlight.creator%></h1>
-    </span>
-    <p class="votes"><%= Vote.spotlight.votes.count %> votes</p>
-  </div>
+  <% winner = Vote.spotlight %>
+  <% if winner %>
+    <div class="winner">
+      <h1><span class="spotlight">Media Spotlight: </span><%= link_to "#{Vote.spotlight.title}", class: "spotlight-link"%><span class="creator"> by <%= Vote.spotlight.creator%></h1>
+      </span>
+      <p class="votes"><%= winner.votes.count %> votes</p>
+    </div>
+  <% end%>
   <div class="top-ten-container">
     <div class="movies">
       <h2 class="top">Top Movies</h2>
