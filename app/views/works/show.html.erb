@@ -1,9 +1,14 @@
-<h2><%= @work.title %></h2>
-<h3><%= @work.creator %></h3>
-<h3><%= @work.publication_year %></h3>
-<h3><%= @work.description %></h3>
+<section class="work-info">
+  <h2 class= "work-title"><%= @work.title %></h2>
+  <h6>Created by: <%= @work.creator %></h6>
+  <h6>Published: <%= @work.publication_year %></h6>
+  <h6><%= @work.description %></h6>
+</section>
+<section class="buttons">
+  <%= link_to "Back to media ranks", root_path %>
+  <%= link_to 'Edit', edit_work_path(@work.id) %>
+  <%= link_to "Upvote", '/votes/(@work.id)', method: :post %>
+  <%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure?"}%>
+</section>
 
-<%= link_to "Back to media ranks", root_path %>
-<%= link_to 'Edit', edit_work_path(@work.id) %> 
-<%= link_to "Upvote", '/votes/(@work.id)', method: :post %> 
-<%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure?"}%>
+
