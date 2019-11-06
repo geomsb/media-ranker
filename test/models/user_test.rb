@@ -36,7 +36,7 @@ describe User do
       work1 = works(:hello)
       user2 = users(:claudia)
       work2 = works(:hello)
-      expect(Vote.spotlight) nil
+      expect(Vote.spotlight).must_be_nil
     end
   end 
   
